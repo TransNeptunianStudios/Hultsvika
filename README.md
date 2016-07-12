@@ -1,18 +1,12 @@
-# Phaser + ES6 + Webpack.
-#### A bootstrap project for create games with Phaser + ES6 + Webpack.
-
-![Phaser+ES6+Webpack](https://raw.githubusercontent.com/lean/phaser-es6-webpack/master/assets/images/phaser-es6-webpack.jpg)
-
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
+# Hultsvika
+#### A musci festival simulator
 
 ## Features
-- JavaScript Standard Style
-- Next generation of Javascript
-- Webpack ready
-- Multiple browser testing
-- WebFont Loader
-- Responsive utilities!
+- Isometric
+- Drunk simulation!
+- Happiness meter
+- Karma system
+- Replayable!
 
 
 # Setup
@@ -54,19 +48,3 @@ This will run a server so you can run the game in a browser.
 Open your browser and enter localhost:3000 into the address bar.
 
 Also this will start a watch process, so u can change the source and the process will recompile and refresh the browser
-
-
-## Compile for deployment:
-
-Run:
-
-```npm run deploy```
-
-This will optimize and minimize the compiled bundle.
-
-## Credits
-Big thanks to this great repos:
-
-https://github.com/belohlavek/phaser-es6-boilerplate
-
-https://github.com/cstuncsik/phaser-es6-demo
