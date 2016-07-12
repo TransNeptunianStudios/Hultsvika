@@ -25,15 +25,15 @@ export default class extends Phaser.State {
 
     this.load.image('cube', './assets/images/cube.png')
 
-    this.game.time.advancedTiming = true;
+    this.time.advancedTiming = true;
 
     // Add and enable the plug-in.
     this.game.plugins.add(new Phaser.Plugin.Isometric(this.game));
     // In order to have the camera move, we need to increase the size of our world bounds.
-    this.game.world.setBounds(0, 0, 2048, 1024);
+    this.world.setBounds(0, 0, 2048, 1024);
 
     // Start the IsoArcade physics system.
-    this.game.physics.startSystem(Phaser.Plugin.Isometric.ISOARCADE);
+    this.physics.startSystem(Phaser.Plugin.Isometric.ISOARCADE);
 
     // This is used to set a game canvas-based offset for the 0, 0, 0 isometric coordinate - by default
     // this point would be at screen coordinates 0, 0 (top left) which is usually undesirable.

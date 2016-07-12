@@ -11,10 +11,10 @@ export default class extends Phaser.State {
 
   create () {
     // Create a group for our tiles, so we can use Group.sort
-    isoGroup = this.game.add.group();
+    isoGroup = this.add.group();
 
     // Set the global gravity for IsoArcade.
-    this.game.physics.isoArcade.gravity.setTo(0, 0, -500);
+    this.physics.isoArcade.gravity.setTo(0, 0, -500);
 
     // Let's make a load of cubes on a grid, but do it back-to-front so they get added out of order.
     var cube;
@@ -23,11 +23,11 @@ export default class extends Phaser.State {
 
             // Create a cube using the new game.add.isoSprite factory method at the specified position.
             // The last parameter is the group you want to add it to (just like game.add.sprite)
-            cube = this.game.add.isoSprite(xx, yy, 0, 'cube', 0, isoGroup);
+            cube = this.add.isoSprite(xx, yy, 0, 'cube', 0, isoGroup);
             cube.anchor.set(0.5);
 
             // Enable the physics body on this cube.
-            this.game.physics.isoArcade.enable(cube);
+            this.physics.isoArcade.enable(cube);
 
             // Collide with the world bounds so it doesn't go falling forever or fly off the screen!
             cube.body.collideWorldBounds = true;
@@ -41,30 +41,30 @@ export default class extends Phaser.State {
     }
 
     // Create another cube as our 'player', and set it up just like the cubes above.
-    player = this.game.add.isoSprite(128, 128, 0, 'cube', 0, isoGroup);
+    player = this.add.isoSprite(128, 128, 0, 'cube', 0, isoGroup);
     player.tint = 0x86bfda;
     player.anchor.set(0.5);
-    this.game.physics.isoArcade.enable(player);
+    this.physics.isoArcade.enable(player);
     player.body.collideWorldBounds = true;
 
     // Set up our controls.
     this.cursors = this.game.input.keyboard.createCursorKeys();
 
-    this.game.input.keyboard.addKeyCapture([
+    this.input.keyboard.addKeyCapture([
         Phaser.Keyboard.LEFT,
         Phaser.Keyboard.RIGHT,
         Phaser.Keyboard.UP,
         Phaser.Keyboard.DOWN,
         Phaser.Keyboard.SPACEBAR
     ]);
-    var space = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    var space = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
     space.onDown.add(function () {
         player.body.velocity.z = 300;
     }, this);
 
     // Make the camera follow the player.
-    this.game.camera.follow(player);
+    this.camera.follow(player);
   }
 
   update () {
@@ -92,13 +92,13 @@ export default class extends Phaser.State {
     }
 
     // Our collision and sorting code again.
-    this.game.physics.isoArcade.collide(isoGroup);
+    this.physics.isoArcade.collide(isoGroup);
     this.game.iso.topologicalSort(isoGroup);
   }
 
   render () {
     if (__DEV__) {
-      //this.game.debug.spriteInfo(this.mushroom, 32, 32)
+      this.game.debug.spriteInfo(player, 32, 32)
     }
   }
 }
