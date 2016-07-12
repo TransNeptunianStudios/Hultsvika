@@ -20,8 +20,7 @@
     "expose-loader": "^0.7.1",
     "standard": "^7.1.2",
     "webfontloader": "^1.6.21",
-    "webpack": "^1.13.1",
-    "phaser-plugin-isometric": "^0.9.2"
+    "webpack": "^1.13.1"
   },
   "dependencies": {
     "phaser": "^2.5.0"
